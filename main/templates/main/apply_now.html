@@ -1,0 +1,50 @@
+{% extends "main/base.html" %}
+
+{% block title %}Apply Now{% endblock %}
+
+{% block content %}
+
+<style>
+.apply-form {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.apply-form h2 {
+    text-align: center;
+    color: #003366;
+}
+
+.apply-form input, 
+.apply-form textarea, 
+.apply-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.apply-btn {
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+
+<div class="apply-form">
+    <h2>Apply Now</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="apply-btn">Submit Application</button>
+    </form>
+</div>
+
+{% endblock %}
